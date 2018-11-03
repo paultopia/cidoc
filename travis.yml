@@ -1,0 +1,9 @@
+language: minimal
+addons:
+  apt:
+    packages:
+    - texlive
+    - pandoc
+    - pandoc-citeproc
+script:
+  - echo 'this runs so far'
