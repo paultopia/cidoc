@@ -3,6 +3,7 @@ addons:
   apt:
     packages:
       - texlive
+      - lmodern
       - pandoc
       - pandoc-citeproc
 before_deploy:
