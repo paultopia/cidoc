@@ -2,8 +2,23 @@ language: minimal
 addons:
   apt:
     packages:
-    - texlive
-    - pandoc
-    - pandoc-citeproc
+      - texlive
+      - pandoc
+      - pandoc-citeproc
+before_deploy:
+  - git config --local user.name "gowder_automated"
+  - git config --local user.email "paul.gowder@gmail.com"
+  - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
 script:
   - echo 'this runs so far'
+deploy:
+  provider: releases
+  api_key:
+    secure: DHg/9YVewu771ghQY9wcgJD6yYPOtsAkWKgWsKlAdsiv+ioeeEnnEJL9CilX7L7FEVzpbBVSbK/BztEvGAzMdrrj1tYqq6kcAg2rQQxEiDWWNoYwHY08Cc3YWttZ7LRjRNbIBB/MViAJp9pIIRky0R3U1A967px/GCxtA+hr8xn7w6Fa9zawKJ0b/erKxhrNhE3nGTEL4FZrLjNyzl+/S7e6PJeJX+/BGZcEtCdMMoZSpiVfh/t0dVOsfHOmn7jmo6V1D//agSXsZUDTNEFqPBZwbp+0U34r35fwhu+3pK/c+PIinM8Wad4i0HgCyW/cF8z8uAqAIXylEfX27dHFpkgp9jEmWHAXy/m8G6PtV5z/Yn8YZpnR0gPlmvEcMee0vyxDGoFjOvrURhwFICfSdObKAb/UZayuRw23IMU+WjlgMOv7gq1PabNxxQkRBfvKdkAXkG548TgbVMut70nTj/I/TNjBMUmh9Hp4hyZhNxs5eBueVDYzDRnjVvo13yA1SCV9laTwh1mnR/3JPISf13OP+TfekV9B1E2nxE1clcs3tc2sKdauUmCdxjmnUnJII9JoIkgrg8SmwANH54OEfAc/OD7rSDOh51o8gPwBEfxNFOTDLZ94+pEbQR3EIMUhTSGGB6/6szPXmjVUKSkKHSJTzUHIdxcRzaNn0/7OR8k=
+  file:
+    - "current_draft.docx"
+    - "current_draft.pdf"
+  on:
+    repo: paultopia/cidoc
+  skip_cleanup: true
+  overwrite: true
