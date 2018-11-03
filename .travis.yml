@@ -10,7 +10,9 @@ before_deploy:
   - git config --local user.email "paul.gowder@gmail.com"
   - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
 script:
-  - echo 'this runs so far'
+  - pandoc -o current_draft.pdf -s --filter pandoc-citeproc document.md
+  - pandoc -o current_draft.docx -s --filter pandoc-citeproc document.md
+
 deploy:
   provider: releases
   api_key:
@@ -20,5 +22,6 @@ deploy:
     - "current_draft.pdf"
   on:
     repo: paultopia/cidoc
+    all_branches: true
   skip_cleanup: true
   overwrite: true
