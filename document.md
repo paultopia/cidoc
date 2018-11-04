@@ -12,4 +12,15 @@ fontsize: 12pt
 
 I am some text!  Now I will cite a paper: [@gowder2014market] I cited it! 
 
-Apparently you need to push tags. let's see if it'll push and push tags simultaneously.
+it seems... and this is very strange... that the following workflow will get a tag going: 
+
+```
+git add .
+git commit -m "some commit message"
+git tag "hereisatag"
+git push
+git push --tags
+```
+
+but only that sequence.  putting the tags or the pushing in any other order won't. 
+
