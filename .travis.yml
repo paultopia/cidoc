@@ -1,4 +1,5 @@
 language: minimal
+if: tag IS present
 notifications:
   email:
     on_success: never
