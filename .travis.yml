@@ -9,7 +9,6 @@ addons:
 before_deploy:
   - git config --local user.name "gowder_automated"
   - git config --local user.email "paul.gowder@gmail.com"
-  - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
 script:
   - pandoc -o current_draft.pdf -s --filter pandoc-citeproc document.md
   - pandoc -o current_draft.docx -s --filter pandoc-citeproc document.md
@@ -24,5 +23,6 @@ deploy:
   on:
     repo: paultopia/cidoc
     all_branches: true
+    tags: true
   skip_cleanup: true
   overwrite: true
