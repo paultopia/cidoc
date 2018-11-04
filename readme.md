@@ -13,3 +13,7 @@ git push --tags
 ```
 
 or equivalent on ios.  now to figure out how to not build on every trivial commit. 
+
+----
+
+Ok, I've got it under control! The condition `if: tag IS present` only runs CI at all if a tag is present, and then the `on` condition on deploy also pushes a release under those circumstances.
