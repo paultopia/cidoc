@@ -1,4 +1,8 @@
 language: minimal
+notifications:
+  email:
+    on_success: never
+    on_failure: change
 addons:
   apt:
     packages:
@@ -6,6 +10,8 @@ addons:
       - lmodern
       - pandoc
       - pandoc-citeproc
+cache:
+  apt: true
 before_deploy:
   - git config --local user.name "gowder_automated"
   - git config --local user.email "paul.gowder@gmail.com"
