@@ -12,7 +12,4 @@ fontsize: 12pt
 
 I am some text!  Now I will cite a paper: [@gowder2014market] I cited it! 
 
-And this commit should be released, because I will tag it.
-
-why is my tag not showing up?
-
+Apparently you need to push tags. let's see if it'll push and push tags simultaneously.
